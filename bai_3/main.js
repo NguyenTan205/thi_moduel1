@@ -18,7 +18,7 @@ document.getElementById('checkButton').addEventListener('click', function (event
     const thang = parseInt(parts[0]);
     const nam = parseInt(parts[1]);
 
-    // Kiểm tra độ dài và giá trị
+    // giá trị
     if (isNaN(thang) || thang < 1 || thang > 12) {
         document.getElementById('result').innerHTML = 'Tháng không hợp lệ! Tháng phải từ 01 đến 12.';
         return;
