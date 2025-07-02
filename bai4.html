@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lí công nhân</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align: center">Quản lí công nhân</h2>
+<table>
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Họ và tên</th>
+        <th>Ngày sinh</th>
+        <th>Địa chỉ</th>
+        <th>Lương</th>
+        <th>Chức vụ</th>
+    </tr>
+    </thead>
+    <tbody id="dulieu"></tbody>
+</table>
+<script>
+    class Congnhan {
+        constructor(STT, hoten, ngaysinh, diachi, luong, chucvu) {
+            this.STT = STT;
+            this.hoten = hoten;
+            this.ngaysinh = ngaysinh;
+            this.diachi = diachi;
+            this.luong = luong;
+            this.chucvu = chucvu;
+        }
+    }
+
+    const danhSachCongNhan = [];
+    const cn = new Congnhan('1', 'Trương Tấn A', '11-11-1997', 'Quảng Nam', '2000', 'Abc');
+    danhSachCongNhan.push(cn);
+    danhSachCongNhan.push(new Congnhan('2', 'Trương Tấn B', '11-11-1998', 'Đà Nẵng', '2000', 'Abc'));
+    danhSachCongNhan.push(new Congnhan('3', 'Trương Tấn C', '11-11-1999', 'Huế', '2000', 'Abc'));
+
+    function hienThiCongNhan() {
+        const duLieu = document.getElementById('dulieu');
+        duLieu.innerHTML = '';
+        for (let i = 0; i < danhSachCongNhan.length; i++) {
+            duLieu.innerHTML += `<tr>
+                            <td>${danhSachCongNhan[i].STT}</td>
+                            <td>${danhSachCongNhan[i].hoten}</td>
+                            <td>${danhSachCongNhan[i].ngaysinh}</td>
+                            <td>${danhSachCongNhan[i].diachi}</td>
+                            <td>${danhSachCongNhan[i].luong}</td>
+                            <td>${danhSachCongNhan[i].chucvu}</td>
+                            </tr>`
+        }
+    }
+
+    danhSachCongNhan.sort((a, b) => a.hoten.localeCompare(b.hoten));
+    hienThiCongNhan();
+</script>
+</body>
+</html>
